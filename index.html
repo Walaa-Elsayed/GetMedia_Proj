@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetMedia Website</title>
+
+    <!-- Bootsrtap links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+
+    <!-- Here javascript code files -->
+    <script src="javaScript/addItems_shoppingBag.js"></script>
+    <script src="javaScript/my_jquery_code.js"></script>
+
+
+    <!-- jQuery link -->
+    <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- style sheet links -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- FontAwesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Use Angular link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+
+
+</head>
+
+<body onload="shopping_basket_init()" data-spy="scroll" data-target="#main-nav" id="home">
+    <!-- Header section starts here -->
+    <header class="fluid-container " id="home_page_header">
+
+        <!-- Navbar code starts from here -->
+
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand header_logo" href="index.html" id="header_logo">GetMedia</a>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link secondary_lightBlue" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search_media.html">Media</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="voucherPage.html"> Vouchers </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" onclick="show_basket_items_navbar()">
+                            <i class="fa fa-shopping-cart" style="font-size:24px"></i> <span
+                                id="total_basket_items"></span>
+
+                        </a>
+
+
+
+                        <div class="dropdown-menu p-3" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="shopping_basketPage.html" id="show_basket_link" class="px-2"> View/Edit
+                                Basket</a>
+                            <a href="#" id="empty_basket_link" class="px-2" onclick="romove_basket_items()"> Empty
+                                Basket</a>
+                            <div id="get_basket_items" class="pt-3"></div>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </nav>
+        <!-- Navbar code ends here -->
+
+        <!-- overlay code -->
+        <div class="overlay"></div>
+
+        <div class="container h-75 d-flex  flex-column justify-content-center text-center align-items-center">
+            <div class="row text-white">
+                <h1 id="header_title">Get Media</h1>
+
+            </div>
+            <div class="row py-3">
+                <button type="button" class="btn bg_primary_darkOrange header_button btn-lg"
+                    onclick="get_location('search_media.html')"> Search your Music
+                </button>
+            </div>
+        </div>
+
+    </header>
+    <!-- Header section ends here -->
+
+
+
+    <!-- Main section starts here -->
+    <main class="fluid-container" id="home_page_main">
+
+        <div class="container py-5">
+
+            <!-- Main Section Title -->
+            <div class="row container d-flex justify-content-center">
+                <h2>Recent Releases</h2>
+            </div>
+            <!-- Display audios -->
+            <div class="row container d-flex  justify-content-center align-items-center">
+                <!-- Audio one -->
+                <div class="col-md-4 py-2">
+                    <div class="audio1 text-center">
+                        <h5 class="py-5 image_text-shadow"> Goldn Audio</h5>
+                        <div class="audio_content pt-5">
+                            <audio controls>
+                                <source src="audios/goldn-116392.mp3" type="audio/mpeg">
+                            </audio>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio two -->
+                <div class="col-md-4 py-2">
+                    <div class="audio2 text-center">
+                        <h5 class="py-5 image_text-shadow"> Rock Four Shots</h5>
+                        <div class="audio_content pt-5 ">
+                            <audio controls>
+                                <source src="audios/stomping-rock-four-shots-111444.mp3" type="audio/mpeg">
+                            </audio>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio three -->
+                <div class="col-md-4 py-2">
+                    <div class="audio3 text-center">
+                        <h5 class="py-5 image_text-shadow"> Lofi Study</h5>
+                        <div class="audio_content pt-5">
+                            <audio controls>
+                                <source src="audios/lofi-study-112191.mp3" type="audio/mpeg">
+                            </audio>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- link to vouchers page -->
+            <div class="row container justify-content-md-center py-5">
+                <h2 class="d-inline">Check our iTunes Vouchers </h2>
+                <button type="button" class="d-inline btn btn-lg mx-5" id="home_voucher_btn"
+                    onclick="get_location('voucherPage.html')"> Get Your Vouchers
+                </button>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- Main section ends here -->
+
+
+
+
+
+
+    <section class="recent_collaborators_section">
+        <div class="container py-5 d-flex flex-column  justify-content-center align-items-center">
+            <h2 class="text-center pb-5 primary_orange">Recent Collaborators</h2>
+
+            <!-- carousel starts Here -->
+            <div id="carouselExampleIndicators" class="carousel slide w-75 h-75" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/3.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/1.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/2.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- carousel Ends Here -->
+
+        </div>
+    </section>
+
+
+    <!-- footer section starts here -->
+    <footer class="fluid-container w-100">
+       
+
+        <div class="contact_pop">
+            <div id="contact-icon">
+                <img src="images/icon-contact.png" alt="contact" height="50" width="50">
+            </div>
+            <!--Contact Form-->
+            <div id="contact-popup">
+                <form class="contact-form" action="" id="contact-form" method="post" enctype="multipart/form-data">
+                    <h5>Contact Us</h5>
+                    <div>
+                        <div>
+                            <label>Name: </label><span id="userName-info" class="info"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="userName" name="userName" class="inputBox" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Email: </label><span id="userEmail-info" class="info"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="userEmail" name="userEmail" class="inputBox" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Subject: </label><span id="subject-info" class="info"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="subject" name="subject" class="inputBox" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Message: </label><span id="userMessage-info" class="info"></span>
+                        </div>
+                        <div>
+                            <textarea id="message" name="message" class="inputBox"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" id="send" name="send" value="Send" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- footer code  -->
+        <div class="footer_links_section">
+
+            <div class="container text-center">
+
+
+                <!-- Footer Logo -->
+                <div class="footer_logo py-5">GetMedia</div>
+
+                <!-- Footer Follow links -->
+                <div id="footer_title">
+                    <h4 class="primary_orange">Follow Us </h4>
+                </div>
+                <div class="pt-3 social_media_links">
+                    <a href="https://www.facebook.com/applemusic/"> <i class="fa fa-facebook-square mx-2"
+                            style="font-size:36px"></i> </a>
+                    <a href="https://www.instagram.com/applemusic/?hl=en"><i class="fa fa-instagram mx-2" style="font-size:36px"></i></a>
+                    <a href="https://twitter.com/AppleMusic"><i class="fa fa-twitter mx-2" style="font-size:36px"></i></a>
+                    <a href="https://www.youtube.com/channel/UCBv7HEHuVlNAELGi5XJd85Q"><i class="fa fa-youtube-play mx-2" style="font-size:36px"></i></a>
+
+                </div>
+
+                <!-- Footer copyright -->
+                <div class="copyRight py-5"> Copyright © 2022 GetMedia_walaa. All Rights Reserved </div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <!-- footer section ends here -->
+
+
+
+
+
+
+
+
+</body>
+
+</html>

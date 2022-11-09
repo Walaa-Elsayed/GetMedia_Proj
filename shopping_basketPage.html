@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetMedia Website</title>
+
+    <!-- Bootsrtap links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+
+    <!-- Here javascript code files -->
+    <script src="javaScript/addItems_shoppingBag.js"></script>
+    <script src="javaScript/my_jquery_code.js"></script>
+    
+
+
+    <!-- jQuery link -->
+    <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- style sheet links -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- FontAwesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Use Angular link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+
+</head>
+
+<body onload="get_shopping_basketPage()">
+
+ <!-- Header section starts here -->
+ <header class="fluid-container" id="shopping_basket_header">
+
+    <!-- Navbar code starts from here -->
+    <nav class="navbar navbar-expand-sm  px-5">
+        <a class="navbar-brand header_logo pl-5" href="index.html" id="header_logo">GetMedia</a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link secondary_lightBlue" href="index.html">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="search_media.html">Media</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="voucherPage.html"> Vouchers </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onclick="show_basket_items_navbar()">
+                        <i class="fa fa-shopping-cart" style="font-size:24px"></i> <span
+                            id="total_basket_items"></span>
+
+
+                    </a>
+
+
+
+                    <div class="dropdown-menu p-3" aria-labelledby="navbarDropdownMenuLink">
+
+
+                        <a href="shopping_basketPage.html" id="show_basket_link" class="px-2"> View/Edit
+                            Basket</a>
+                        <a href="#" id="empty_basket_link" class="px-2" onclick="romove_basket_items()"> Empty
+                            Basket</a>
+
+                        <div id="get_basket_items" class="pt-3"></div>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </nav>
+    <!-- Navbar code ends here -->
+    
+    <!-- overlay code -->
+    <div class="overlay"></div>
+
+    <div class="container h-75 d-flex  flex-column justify-content-center text-center align-items-center">
+        <div class="row text-white">
+            <h1>Get Media</h1>
+            
+        </div>
+        <div class="row text-white py-3">
+            <h3> Check your Shopping Basket</h3>
+        </div>
+    </div>
+
+</header>
+<!-- Header section ends here -->
+
+
+    <!-- Main section starts here -->
+    <div class="fluid-container vouchersPage_main">
+        <div class="container py-5">
+
+            <div id="voucher_items">
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- Main section ends here -->
+
+
+
+     <!-- footer section starts here -->
+     <footer class="fluid-container w-100">
+
+        <div class="contact_pop">
+            <div id="contact-icon">
+                <img src="images/icon-contact.png" alt="contact" height="50" width="50">
+            </div>
+            <!--Contact Form-->
+            <div id="contact-popup">
+                <form class="contact-form" action="" id="contact-form" method="post" enctype="multipart/form-data">
+                    <h5>Contact Us</h5>
+                    <div>
+                        <div>
+                            <label>Name: </label><span id="userName-info" class="info"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="userName" name="userName" class="inputBox" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Email: </label><span id="userEmail-info" class="info"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="userEmail" name="userEmail" class="inputBox" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Subject: </label><span id="subject-info" class="info"></span>
+                        </div>
+                        <div>
+                            <input type="text" id="subject" name="subject" class="inputBox" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>Message: </label><span id="userMessage-info" class="info"></span>
+                        </div>
+                        <div>
+                            <textarea id="message" name="message" class="inputBox"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" id="send" name="send" value="Send" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- footer code  -->
+        <div class="footer_links_section">
+
+            <div class="container text-center">
+
+
+                <!-- Footer Logo -->
+                <div class="footer_logo py-5">GetMedia</div>
+
+                <!-- Footer Follow links -->
+                <div id="footer_title">
+                    <h4 class="primary_orange text_shadow">Follow Us </h4>
+                </div>
+                <div class="pt-3 social_media_links">
+                    <a href="https://www.facebook.com/"> <i class="fa fa-facebook-square mx-2"
+                            style="font-size:36px"></i> </a>
+                    <a href="https://www.facebook.com/"><i class="fa fa-instagram mx-2" style="font-size:36px"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fa fa-twitter mx-2" style="font-size:36px"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fa fa-soundcloud mx-2" style="font-size:36px"></i></a>
+
+                </div>
+
+                <!-- Footer copyright -->
+                <div class="copyRight py-5"> Copyright © 2022 GetMedia_walaa. All Rights Reserved </div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <!-- footer section ends here -->
+
+
+     <!-- Here javascript code files -->
+     <script src="javaScript/addItems_shoppingBag.js"></script>
+     
+     
+</body>
+
+</html>
